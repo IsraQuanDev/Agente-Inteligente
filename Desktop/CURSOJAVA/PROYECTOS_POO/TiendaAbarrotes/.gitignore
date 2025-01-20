@@ -1,0 +1,12 @@
+# Ignorar carpetas innecesarias
+.VirtualBox/
+.anaconda/
+.android/
+.azure/
+.cache/
+.bash_history
+
+# Opcional: ignorar archivos temporales y de sistema
+*.log
+*.tmp
+.DS_Store
