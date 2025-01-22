@@ -1,0 +1,7 @@
+.VirtualBox/
+.anaconda/
+.android/
+.azure/
+.bash_history
+.cache/
+.cargo/
