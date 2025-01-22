@@ -1,7 +1,7 @@
-.VirtualBox/
-.anaconda/
-.android/
-.azure/
-.bash_history
-.cache/
-.cargo/
+# Ignorar archivos y directorios del sistema
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+*.swp
