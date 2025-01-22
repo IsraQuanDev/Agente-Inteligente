@@ -1,0 +1,155 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="43E38CE2-1868-5016-CB05-A7085C736E7A" schemaObject="2AF4727F-7DB2-CBEF-138B-0C40603F4C3E" name="FACTURACION">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>FACTURACION</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:38 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_FACTURA" id="09FF6F1B-7CC5-3D97-7E3B-4BB0BFE37984">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>FACTURACION</sourceObjSchema>
+<sourceObjName>ID_FACTURA</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="ID_PACIENTE" id="A16C33DD-56BC-1D83-0606-1CC187332B73">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>FACTURACION</sourceObjSchema>
+<sourceObjName>ID_PACIENTE</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E7F2824C-D657-246F-9D51-8F99BA951A2F" referredColumn="AB98DBFB-E7A5-4236-A48A-EAF951D3B502"/>
+</associations>
+</Column>
+<Column name="ID_TRATAMIENTO" id="167C85B7-1729-C785-A239-81C6FED11AE7">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>FACTURACION</sourceObjSchema>
+<sourceObjName>ID_TRATAMIENTO</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="24E61FEF-BDB1-BA8F-0230-F986F1F65A4E" referredColumn="CA9D1A1B-002C-D03D-231E-16B9EB04A41C"/>
+</associations>
+</Column>
+<Column name="MONTO" id="C63E5255-A637-CA0E-2534-A4309EECB944">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>FACTURACION</sourceObjSchema>
+<sourceObjName>MONTO</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FECHA_EMISION" id="2DC41FC9-78AE-1E6E-A1E0-CF144EB6D845">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>FACTURACION</sourceObjSchema>
+<sourceObjName>FECHA_EMISION</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<defaultValue>CURRENT_TIMESTAMP</defaultValue>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ESTADO_PAGO" id="8EE2979A-DB76-26AB-06E2-28EE56092CC2">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>FACTURACION</sourceObjSchema>
+<sourceObjName>ESTADO_PAGO</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<constraintName>SYS_C008518</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<listOfValues>
+<valueDef value="&apos;pagado&apos;" description=""/>
+<valueDef value="&apos;pendiente&apos;" description=""/>
+<valueDef value="&apos;vencido&apos;" description=""/>
+</listOfValues>
+<defaultValue>&apos;pendiente&apos;</defaultValue>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EB440C2D-C65D-55E6-C27C-EA43F88AD897" schemaObject="2AF4727F-7DB2-CBEF-138B-0C40603F4C3E" name="FACTURACION_PK">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>SYS_C008519</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="09FF6F1B-7CC5-3D97-7E3B-4BB0BFE37984"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="11C3D5D9-DD0B-6450-2F6F-6D67BBDC96E2" name="FK_FACTURACION_PACIENTES">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:40 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A16C33DD-56BC-1D83-0606-1CC187332B73"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B2185F08-A8A6-2744-E7A6-C6A472CFA7EE" name="FK_FACTURACION_TRATAMIENTOS">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:40 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="167C85B7-1729-C785-A239-81C6FED11AE7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

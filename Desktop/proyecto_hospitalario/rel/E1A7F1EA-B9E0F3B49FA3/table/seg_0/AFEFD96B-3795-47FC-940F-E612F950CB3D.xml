@@ -1,0 +1,144 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AFEFD96B-3795-47FC-940F-E612F950CB3D" schemaObject="2AF4727F-7DB2-CBEF-138B-0C40603F4C3E" name="HISTORIAL_MEDICO">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>HISTORIAL_MEDICO</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:38 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_HISTORIAL" id="17E894EF-C14C-952A-FEC3-7CA246121DDB">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>HISTORIAL_MEDICO</sourceObjSchema>
+<sourceObjName>ID_HISTORIAL</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="ID_PACIENTE" id="51BCAEAA-D2FB-4254-D077-360E8B2663D6">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>HISTORIAL_MEDICO</sourceObjSchema>
+<sourceObjName>ID_PACIENTE</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B5EA7662-F5FD-A9C2-B83D-CB21802DA874" referredColumn="AB98DBFB-E7A5-4236-A48A-EAF951D3B502"/>
+</associations>
+</Column>
+<Column name="ID_DIAGNOSTICO" id="1DC0C22E-5418-473A-18E8-04C684437E0E">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>HISTORIAL_MEDICO</sourceObjSchema>
+<sourceObjName>ID_DIAGNOSTICO</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="89435EA3-6617-86F2-D08F-95F0E9C8905A" referredColumn="4832288C-C530-4460-2E28-68C0900DCC02"/>
+</associations>
+</Column>
+<Column name="ID_TRATAMIENTO" id="E4654C95-BFB1-57B1-0798-7EE225FE9E73">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>HISTORIAL_MEDICO</sourceObjSchema>
+<sourceObjName>ID_TRATAMIENTO</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C865424B-082F-43FD-B527-39D65F934920" referredColumn="CA9D1A1B-002C-D03D-231E-16B9EB04A41C"/>
+</associations>
+</Column>
+<Column name="FECHA" id="4171298D-6AFA-F6FC-FE38-4D74837C5A1A">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>HISTORIAL_MEDICO</sourceObjSchema>
+<sourceObjName>FECHA</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<defaultValue>CURRENT_TIMESTAMP</defaultValue>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="17249AC6-ADBF-B63D-B317-042177CC69E6" schemaObject="2AF4727F-7DB2-CBEF-138B-0C40603F4C3E" name="HISTORIAL_MEDICO_PK">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>SYS_C008525</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="17E894EF-C14C-952A-FEC3-7CA246121DDB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1BC21A0B-4A82-4523-3346-31595C9448C4" name="FK_HISTORIAL_DIAGNOSTICOS">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:40 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1DC0C22E-5418-473A-18E8-04C684437E0E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3CC5D3BB-AE54-72A7-8BA7-C8C082FFC9C6" name="FK_HISTORIAL_PACIENTES">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:40 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="51BCAEAA-D2FB-4254-D077-360E8B2663D6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FE31687C-608A-3718-B632-87E19FA56DE2" name="FK_HISTORIAL_TRATAMIENTOS">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:40 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E4654C95-BFB1-57B1-0798-7EE225FE9E73"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

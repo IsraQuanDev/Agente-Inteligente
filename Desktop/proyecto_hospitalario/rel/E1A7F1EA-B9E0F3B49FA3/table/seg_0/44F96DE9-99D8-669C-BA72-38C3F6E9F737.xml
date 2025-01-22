@@ -1,0 +1,150 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="44F96DE9-99D8-669C-BA72-38C3F6E9F737" schemaObject="2AF4727F-7DB2-CBEF-138B-0C40603F4C3E" name="MEDICOS">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>MEDICOS</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:38 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_MEDICO" id="A27EBF48-85FE-77EA-F3BC-4B67A91451D4">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>MEDICOS</sourceObjSchema>
+<sourceObjName>ID_MEDICO</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="NOMBRE" id="431347ED-6173-3297-948C-26D49EB6CF4F">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>MEDICOS</sourceObjSchema>
+<sourceObjName>NOMBRE</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="APELLIDO_PATERNO" id="D111F98E-BFDB-CDDE-F0AB-7EE10A372A06">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>MEDICOS</sourceObjSchema>
+<sourceObjName>APELLIDO_PATERNO</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="APELLIDO_MATERNO" id="3FDA5FA2-F230-C07F-CA9E-C321C9A128F8">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>MEDICOS</sourceObjSchema>
+<sourceObjName>APELLIDO_MATERNO</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ESPECIALIDAD" id="4AFF3E96-3957-37FA-23AF-FCD762D87841">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>MEDICOS</sourceObjSchema>
+<sourceObjName>ESPECIALIDAD</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TELEFONO" id="1D53DAF9-FE2E-6BBF-78AD-415610D40B6E">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>MEDICOS</sourceObjSchema>
+<sourceObjName>TELEFONO</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 BYTE</dataTypeSize>
+<ownDataTypeParameters>15 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EMAIL" id="70F6C57D-86ED-D3FF-89E1-37C8392588AA">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>MEDICOS</sourceObjSchema>
+<sourceObjName>EMAIL</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DIRECCION" id="0D8DA73A-A0F1-5D95-AD96-D1DA96697B61">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>MEDICOS</sourceObjSchema>
+<sourceObjName>DIRECCION</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4BF20F17-1675-E66D-C82E-BB2BEF2E1263" schemaObject="2AF4727F-7DB2-CBEF-138B-0C40603F4C3E" name="MEDICOS_PK">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>SYS_C008497</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A27EBF48-85FE-77EA-F3BC-4B67A91451D4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

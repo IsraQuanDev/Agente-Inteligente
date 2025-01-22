@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="TRATAMIENTOS" directorySegmentName="seg_0" id="D3832DCC-62F3-D0F6-503B-268AB240DC04">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:38 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<schemaObject>2AF4727F-7DB2-CBEF-138B-0C40603F4C3E</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>00AD537E-E3D0-52D4-369A-1D5E6AB6E6A9</segment>
+<tableSpace>3E8167AD-1898-90BA-571A-A324FCC21E2E</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="DESCRIPCION" id="110477A9-C070-B696-6420-3C5E4D9495DB">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FECHA_FIN" id="2C82761D-9E53-CFC0-BB35-087A45FC363B">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_DIAGNOSTICO" id="33593C24-AA04-62C5-1598-5700321583EC">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_TRATAMIENTO" id="CA9D1A1B-002C-D03D-231E-16B9EB04A41C">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="FECHA_INICIO" id="EDFF69D7-0684-2161-CE64-7104B5FE5651">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_TRATAMIENTOS_DIAGNOSTICOS" id="0BCAB650-AF8C-A26F-0B37-FF1533C82BB1">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:40 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<lobStorages>
+<LobStorage class="oracle.dbtools.crest.model.design.storage.oracle.v11g.LobStorageOraclev11g" name="SYS_LOB0000078305C00003$$" id="38B129C4-2ABA-80BE-3EB6-E41586A60AF3">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:41 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<cache>NOCACHE</cache>
+<chunk>8192</chunk>
+<column>DESCRIPCION</column>
+<logging>YES</logging>
+<tableSpace>3E8167AD-1898-90BA-571A-A324FCC21E2E</tableSpace>
+</LobStorage>
+</lobStorages>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="TRATAMIENTOS_PK" id="2AB22E31-ABB6-F5A9-CC94-85E9E533A2F3">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:40 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<schemaObject>2AF4727F-7DB2-CBEF-138B-0C40603F4C3E</schemaObject>
+<segment>BF2DC63F-4A56-0F64-FF74-0AFA4D317AF5</segment>
+<tableSpace>3E8167AD-1898-90BA-571A-A324FCC21E2E</tableSpace>
+<indexSegment>BF2DC63F-4A56-0F64-FF74-0AFA4D317AF5</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>

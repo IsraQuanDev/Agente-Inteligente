@@ -1,0 +1,119 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E21C8F06-A092-651E-71B7-0686D8A50B0D" schemaObject="2AF4727F-7DB2-CBEF-138B-0C40603F4C3E" name="DIAGNOSTICOS">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>DIAGNOSTICOS</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:38 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_DIAGNOSTICO" id="4832288C-C530-4460-2E28-68C0900DCC02">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>DIAGNOSTICOS</sourceObjSchema>
+<sourceObjName>ID_DIAGNOSTICO</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="ID_CITA" id="1D849789-35B8-CC3F-9989-FF6C1E7C2BFD">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>DIAGNOSTICOS</sourceObjSchema>
+<sourceObjName>ID_CITA</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="01802F53-D915-14E8-4684-0299C962445A" referredColumn="FB196ABD-957B-2CE0-59C2-FF9547AA0639"/>
+</associations>
+</Column>
+<Column name="DESCRIPCION" id="96867A3F-57E7-56DB-56E6-7EC4365F719D">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>DIAGNOSTICOS</sourceObjSchema>
+<sourceObjName>DESCRIPCION</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT028</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FECHA_DIAGNOSTICO" id="2C8DF01E-6DD8-9E13-6784-814569527681">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>DIAGNOSTICOS</sourceObjSchema>
+<sourceObjName>FECHA_DIAGNOSTICO</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEDICAMENTOS_RECOMENDADOS" id="52E4E19E-945C-8BB2-4F74-60E8DB0C5027">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>DIAGNOSTICOS</sourceObjSchema>
+<sourceObjName>MEDICAMENTOS_RECOMENDADOS</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT028</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FE7AE9CE-7807-F8F0-0118-E5D11C455054" schemaObject="2AF4727F-7DB2-CBEF-138B-0C40603F4C3E" name="DIAGNOSTICOS_PK">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>SYS_C008509</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4832288C-C530-4460-2E28-68C0900DCC02"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D1060129-41B3-85B0-11BF-D47B6C6AE6B9" name="FK_DIAGNOSTICOS_CITAS">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:40 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1D849789-35B8-CC3F-9989-FF6C1E7C2BFD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

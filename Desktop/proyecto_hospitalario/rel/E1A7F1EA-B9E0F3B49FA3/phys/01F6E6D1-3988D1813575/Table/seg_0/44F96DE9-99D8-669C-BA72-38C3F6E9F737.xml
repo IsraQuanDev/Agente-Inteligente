@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="MEDICOS" directorySegmentName="seg_0" id="44F96DE9-99D8-669C-BA72-38C3F6E9F737">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:38 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<schemaObject>2AF4727F-7DB2-CBEF-138B-0C40603F4C3E</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>00AD537E-E3D0-52D4-369A-1D5E6AB6E6A9</segment>
+<tableSpace>3E8167AD-1898-90BA-571A-A324FCC21E2E</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="DIRECCION" id="0D8DA73A-A0F1-5D95-AD96-D1DA96697B61">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TELEFONO" id="1D53DAF9-FE2E-6BBF-78AD-415610D40B6E">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="APELLIDO_MATERNO" id="3FDA5FA2-F230-C07F-CA9E-C321C9A128F8">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NOMBRE" id="431347ED-6173-3297-948C-26D49EB6CF4F">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ESPECIALIDAD" id="4AFF3E96-3957-37FA-23AF-FCD762D87841">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EMAIL" id="70F6C57D-86ED-D3FF-89E1-37C8392588AA">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_MEDICO" id="A27EBF48-85FE-77EA-F3BC-4B67A91451D4">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="APELLIDO_PATERNO" id="D111F98E-BFDB-CDDE-F0AB-7EE10A372A06">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:39 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="MEDICOS_PK" id="4BF20F17-1675-E66D-C82E-BB2BEF2E1263">
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:40 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<schemaObject>2AF4727F-7DB2-CBEF-138B-0C40603F4C3E</schemaObject>
+<segment>BF2DC63F-4A56-0F64-FF74-0AFA4D317AF5</segment>
+<tableSpace>3E8167AD-1898-90BA-571A-A324FCC21E2E</tableSpace>
+<indexSegment>BF2DC63F-4A56-0F64-FF74-0AFA4D317AF5</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>

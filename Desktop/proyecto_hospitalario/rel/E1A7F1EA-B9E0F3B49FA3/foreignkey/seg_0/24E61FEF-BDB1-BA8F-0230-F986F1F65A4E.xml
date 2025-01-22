@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="24E61FEF-BDB1-BA8F-0230-F986F1F65A4E" containerWithKeyObject="43E38CE2-1868-5016-CB05-A7085C736E7A" localFKIndex="B2185F08-A8A6-2744-E7A6-C6A472CFA7EE" name="FK_FACTURACION_TRATAMIENTOS">
+<sourceConnName>Conexion140125</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>FK_FACTURACION_TRATAMIENTOS</sourceObjName>
+<createdBy>52477</createdBy>
+<createdTime>2025-01-22 03:48:40 UTC</createdTime>
+<ownerDesignName>proyecto_hospitalario</ownerDesignName>
+<referredTableLongName>SYSTEM.TRATAMIENTOS</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>D3832DCC-62F3-D0F6-503B-268AB240DC04</referredTableID>
+<keyObject>2AB22E31-ABB6-F5A9-CC94-85E9E533A2F3</keyObject>
+<referredKeyID>2AB22E31-ABB6-F5A9-CC94-85E9E533A2F3</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_TRATAMIENTO</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
