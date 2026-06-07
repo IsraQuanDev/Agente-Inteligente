@@ -1,0 +1,135 @@
+# helm/microservices/values.yaml
+# Override per environment: helm upgrade ... -f values-prod.yaml
+
+global:
+  registry:    "ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com"
+  imageTag:    "latest"
+  namespace:   microservices
+  awsRegion:   us-east-1
+  environment: prod
+
+  # Injected via kubectl secrets (not here)
+  secrets:
+    db:          db-secrets
+    redis:       redis-secrets
+    jwt:         jwt-secrets
+    payment:     payment-secrets
+
+  aws:
+    snsTopicArn:   "arn:aws:sns:us-east-1:ACCOUNT_ID:ms-reto4-prod-events"
+    s3Bucket:      "ms-reto4-prod-assets-us-east-1"
+    orderQueue:    "https://sqs.us-east-1.amazonaws.com/ACCOUNT_ID/ms-reto4-prod-order-events"
+    paymentQueue:  "https://sqs.us-east-1.amazonaws.com/ACCOUNT_ID/ms-reto4-prod-payment-events"
+    notifQueue:    "https://sqs.us-east-1.amazonaws.com/ACCOUNT_ID/ms-reto4-prod-notification-events"
+
+# ── Service-level overrides ────────────────────
+services:
+  auth:
+    enabled:  true
+    port:     8080
+    replicas: 2
+    image:    auth-service
+    resources:
+      requests: { cpu: "100m", memory: "256Mi" }
+      limits:   { cpu: "500m", memory: "512Mi" }
+    hpa:
+      minReplicas: 2
+      maxReplicas: 8
+      targetCPU:   70
+    env:
+      JWT_EXPIRES_IN: "3600"
+
+  user:
+    enabled:  true
+    port:     8081
+    replicas: 2
+    image:    user-service
+    resources:
+      requests: { cpu: "100m", memory: "256Mi" }
+      limits:   { cpu: "500m", memory: "512Mi" }
+    hpa:
+      minReplicas: 2
+      maxReplicas: 10
+      targetCPU:   70
+    env: {}
+
+  product:
+    enabled:  true
+    port:     8082
+    replicas: 2
+    image:    product-service
+    resources:
+      requests: { cpu: "100m", memory: "256Mi" }
+      limits:   { cpu: "500m", memory: "512Mi" }
+    hpa:
+      minReplicas: 2
+      maxReplicas: 10
+      targetCPU:   70
+    env: {}
+
+  order:
+    enabled:  true
+    port:     8083
+    replicas: 2
+    image:    order-service
+    resources:
+      requests: { cpu: "150m", memory: "256Mi" }
+      limits:   { cpu: "600m", memory: "512Mi" }
+    hpa:
+      minReplicas: 2
+      maxReplicas: 10
+      targetCPU:   70
+    env: {}
+
+  payment:
+    enabled:  true
+    port:     8084
+    replicas: 2
+    image:    payment-service
+    resources:
+      requests: { cpu: "150m", memory: "256Mi" }
+      limits:   { cpu: "600m", memory: "512Mi" }
+    hpa:
+      minReplicas: 2
+      maxReplicas: 8
+      targetCPU:   60
+    env: {}
+
+  notification:
+    enabled:  true
+    port:     8085
+    replicas: 2
+    image:    notification-service
+    resources:
+      requests: { cpu: "50m", memory: "128Mi" }
+      limits:   { cpu: "300m", memory: "256Mi" }
+    hpa:
+      minReplicas: 2
+      maxReplicas: 6
+      targetCPU:   70
+    env: {}
+
+# ── Ingress (AWS Load Balancer Controller) ─────
+ingress:
+  enabled: true
+  scheme:  internal     # internal NLB — API Gateway routes to it
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/load-balancer-type: nlb
+    alb.ingress.kubernetes.io/healthcheck-path: /health
+
+# ── Pod security ───────────────────────────────
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser:    1000
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem:   true
+
+# ── Topology spread ────────────────────────────
+topologySpreadEnabled: true
+topologyKey: topology.kubernetes.io/zone
+
+# ── Network policies ───────────────────────────
+networkPolicies:
+  enabled: true

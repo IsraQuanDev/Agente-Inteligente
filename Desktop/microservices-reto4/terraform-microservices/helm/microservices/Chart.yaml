@@ -1,0 +1,13 @@
+apiVersion: v2
+name: microservices
+description: Helm chart for Reto 4 — 6 microservices on EKS
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+keywords:
+  - microservices
+  - aws
+  - jwt
+maintainers:
+  - name: DevOps Team
+    email: devops@yourcompany.com

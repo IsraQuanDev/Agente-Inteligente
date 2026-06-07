@@ -1,0 +1,27 @@
+{
+  "name": "auth-service",
+  "version": "1.0.0",
+  "description": "JWT authentication microservice",
+  "main": "src/index.js",
+  "scripts": {
+    "start":   "node src/index.js",
+    "dev":     "nodemon src/index.js",
+    "test":    "jest --coverage",
+    "lint":    "eslint src/"
+  },
+  "dependencies": {
+    "aws-xray-sdk":   "^3.5.3",
+    "bcryptjs":       "^2.4.3",
+    "express":        "^4.18.2",
+    "ioredis":        "^5.3.2",
+    "jsonwebtoken":   "^9.0.2",
+    "pg":             "^8.11.3",
+    "uuid":           "^9.0.0"
+  },
+  "devDependencies": {
+    "jest":           "^29.7.0",
+    "nodemon":        "^3.0.2",
+    "supertest":      "^6.3.4"
+  },
+  "engines": { "node": ">=20" }
+}

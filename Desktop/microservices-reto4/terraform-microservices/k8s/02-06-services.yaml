@@ -1,0 +1,562 @@
+---
+# k8s/02-user-service.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service
+  namespace: microservices
+  labels:
+    app: user-service
+    version: "1.0"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: user-service
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: { maxSurge: 1, maxUnavailable: 0 }
+  template:
+    metadata:
+      labels:
+        app: user-service
+        version: "1.0"
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9090"
+    spec:
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: DoNotSchedule
+          labelSelector:
+            matchLabels:
+              app: user-service
+      containers:
+        - name: user-service
+          image: ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/user-service:latest
+          ports:
+            - containerPort: 8081
+              name: http
+          env:
+            - name: PORT
+              value: "8081"
+            - name: JWT_ISSUER
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secrets
+                  key: jwt-issuer
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: host
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: password
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: username
+            - name: REDIS_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: redis-secrets
+                  key: host
+          envFrom:
+            - configMapRef:
+                name: common-config
+          resources:
+            requests: { cpu: "100m", memory: "256Mi" }
+            limits:   { cpu: "500m", memory: "512Mi" }
+          readinessProbe:
+            httpGet: { path: /health, port: 8081 }
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: { path: /health, port: 8081 }
+            initialDelaySeconds: 30
+            periodSeconds: 15
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            allowPrivilegeEscalation: false
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-service
+  namespace: microservices
+spec:
+  selector:
+    app: user-service
+  ports:
+    - port: 8081
+      targetPort: 8081
+  type: ClusterIP
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: user-service-hpa
+  namespace: microservices
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: user-service
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+
+---
+# k8s/03-product-service.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-service
+  namespace: microservices
+  labels:
+    app: product-service
+    version: "1.0"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: product-service
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: { maxSurge: 1, maxUnavailable: 0 }
+  template:
+    metadata:
+      labels:
+        app: product-service
+        version: "1.0"
+    spec:
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: DoNotSchedule
+          labelSelector:
+            matchLabels:
+              app: product-service
+      containers:
+        - name: product-service
+          image: ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/product-service:latest
+          ports:
+            - containerPort: 8082
+              name: http
+          env:
+            - name: PORT
+              value: "8082"
+            - name: S3_BUCKET
+              value: "ms-reto4-prod-assets-us-east-1"
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: host
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: password
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: username
+            - name: REDIS_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: redis-secrets
+                  key: host
+          envFrom:
+            - configMapRef:
+                name: common-config
+          resources:
+            requests: { cpu: "100m", memory: "256Mi" }
+            limits:   { cpu: "500m", memory: "512Mi" }
+          readinessProbe:
+            httpGet: { path: /health, port: 8082 }
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: { path: /health, port: 8082 }
+            initialDelaySeconds: 30
+            periodSeconds: 15
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            allowPrivilegeEscalation: false
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-service
+  namespace: microservices
+spec:
+  selector:
+    app: product-service
+  ports:
+    - port: 8082
+      targetPort: 8082
+  type: ClusterIP
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: product-service-hpa
+  namespace: microservices
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: product-service
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+
+---
+# k8s/04-order-service.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+  namespace: microservices
+  labels:
+    app: order-service
+    version: "1.0"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: order-service
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: { maxSurge: 1, maxUnavailable: 0 }
+  template:
+    metadata:
+      labels:
+        app: order-service
+        version: "1.0"
+    spec:
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: DoNotSchedule
+          labelSelector:
+            matchLabels:
+              app: order-service
+      containers:
+        - name: order-service
+          image: ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/order-service:latest
+          ports:
+            - containerPort: 8083
+              name: http
+          env:
+            - name: PORT
+              value: "8083"
+            - name: ORDER_QUEUE_URL
+              value: "https://sqs.us-east-1.amazonaws.com/ACCOUNT_ID/ms-reto4-prod-order-events"
+            - name: SNS_TOPIC_ARN
+              value: "arn:aws:sns:us-east-1:ACCOUNT_ID:ms-reto4-prod-events"
+            - name: PAYMENT_SERVICE_URL
+              value: "http://payment-service:8084"
+            - name: PRODUCT_SERVICE_URL
+              value: "http://product-service:8082"
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: host
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: password
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: username
+          envFrom:
+            - configMapRef:
+                name: common-config
+          resources:
+            requests: { cpu: "150m", memory: "256Mi" }
+            limits:   { cpu: "600m", memory: "512Mi" }
+          readinessProbe:
+            httpGet: { path: /health, port: 8083 }
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: { path: /health, port: 8083 }
+            initialDelaySeconds: 30
+            periodSeconds: 15
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            allowPrivilegeEscalation: false
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-service
+  namespace: microservices
+spec:
+  selector:
+    app: order-service
+  ports:
+    - port: 8083
+      targetPort: 8083
+  type: ClusterIP
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: order-service-hpa
+  namespace: microservices
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: order-service
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+
+---
+# k8s/05-payment-service.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-service
+  namespace: microservices
+  labels:
+    app: payment-service
+    version: "1.0"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: payment-service
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: { maxSurge: 1, maxUnavailable: 0 }
+  template:
+    metadata:
+      labels:
+        app: payment-service
+        version: "1.0"
+    spec:
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: DoNotSchedule
+          labelSelector:
+            matchLabels:
+              app: payment-service
+      containers:
+        - name: payment-service
+          image: ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/payment-service:latest
+          ports:
+            - containerPort: 8084
+              name: http
+          env:
+            - name: PORT
+              value: "8084"
+            - name: PAYMENT_QUEUE_URL
+              value: "https://sqs.us-east-1.amazonaws.com/ACCOUNT_ID/ms-reto4-prod-payment-events"
+            - name: SNS_TOPIC_ARN
+              value: "arn:aws:sns:us-east-1:ACCOUNT_ID:ms-reto4-prod-events"
+            - name: STRIPE_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: payment-secrets
+                  key: stripe-secret-key
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: host
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: password
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: username
+          envFrom:
+            - configMapRef:
+                name: common-config
+          resources:
+            requests: { cpu: "150m", memory: "256Mi" }
+            limits:   { cpu: "600m", memory: "512Mi" }
+          readinessProbe:
+            httpGet: { path: /health, port: 8084 }
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: { path: /health, port: 8084 }
+            initialDelaySeconds: 30
+            periodSeconds: 15
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            allowPrivilegeEscalation: false
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-service
+  namespace: microservices
+spec:
+  selector:
+    app: payment-service
+  ports:
+    - port: 8084
+      targetPort: 8084
+  type: ClusterIP
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: payment-service-hpa
+  namespace: microservices
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: payment-service
+  minReplicas: 2
+  maxReplicas: 8
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 60
+
+---
+# k8s/06-notification-service.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-service
+  namespace: microservices
+  labels:
+    app: notification-service
+    version: "1.0"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: notification-service
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: { maxSurge: 1, maxUnavailable: 0 }
+  template:
+    metadata:
+      labels:
+        app: notification-service
+        version: "1.0"
+    spec:
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: DoNotSchedule
+          labelSelector:
+            matchLabels:
+              app: notification-service
+      containers:
+        - name: notification-service
+          image: ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/notification-service:latest
+          ports:
+            - containerPort: 8085
+              name: http
+          env:
+            - name: PORT
+              value: "8085"
+            - name: NOTIFICATION_QUEUE_URL
+              value: "https://sqs.us-east-1.amazonaws.com/ACCOUNT_ID/ms-reto4-prod-notification-events"
+            - name: SES_FROM_EMAIL
+              value: "noreply@yourcompany.com"
+            - name: S3_BUCKET
+              value: "ms-reto4-prod-assets-us-east-1"
+          envFrom:
+            - configMapRef:
+                name: common-config
+          resources:
+            requests: { cpu: "50m", memory: "128Mi" }
+            limits:   { cpu: "300m", memory: "256Mi" }
+          readinessProbe:
+            httpGet: { path: /health, port: 8085 }
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: { path: /health, port: 8085 }
+            initialDelaySeconds: 30
+            periodSeconds: 15
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            allowPrivilegeEscalation: false
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: notification-service
+  namespace: microservices
+spec:
+  selector:
+    app: notification-service
+  ports:
+    - port: 8085
+      targetPort: 8085
+  type: ClusterIP
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: notification-service-hpa
+  namespace: microservices
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: notification-service
+  minReplicas: 2
+  maxReplicas: 6
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
