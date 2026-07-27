@@ -1,9 +1,6 @@
 # 🤖 Santos Pegasus Corporate AI Assistant
 
-![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
-![Streamlit](https://img.shields.io/badge/Streamlit-Web_App-red.svg)
-![RAG](https://img.shields.io/badge/AI-RAG-success.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
+![](banner-github.png)
 
 Asistente corporativo inteligente basado en **Retrieval-Augmented Generation (RAG)** que permite consultar documentos internos mediante lenguaje natural.
 
@@ -142,9 +139,7 @@ http://localhost:8501
 
 # 📷 Evidencias
 
-## Pantalla principal
 
-![](banner-github.png)
 
 ## Consulta al asistente
 
