@@ -144,16 +144,12 @@ http://localhost:8501
 
 ## Pantalla principal
 
-![](assets/evidence/01-pantalla-principal.png)
+![](banner-github.png)
 
 ## Consulta al asistente
 
-![](assets/evidence/02-respuesta-onboarding.png)
-
-## Fuentes recuperadas
-
-![](assets/evidence/03-fuentes-consultadas.png)
-
+![](02-respuesta-onboarding.png)
+ 
 ---
 
 # 💬 Ejemplo
