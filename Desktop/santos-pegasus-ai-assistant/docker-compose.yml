@@ -1,0 +1,11 @@
+services:
+  agent:
+    build: .
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    volumes:
+      - ./documents:/app/documents:ro
+      - ./data/index:/app/data/index
+    restart: unless-stopped
