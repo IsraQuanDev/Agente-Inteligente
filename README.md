@@ -66,9 +66,7 @@ Respuesta
 - Streamlit
 - Sentence Transformers
 - FAISS
-- LangChain
-- Docker
-
+- LangChain 
 ---
 
 # 📂 Estructura del Proyecto
@@ -79,11 +77,6 @@ Respuesta
 ├── requirements.txt
 ├── scripts/
 ├── src/
-├── documents/
-├── assets/
-│   ├── banner/
-│   ├── diagrams/
-│   └── evidence/
 └── README.md
 ```
 
